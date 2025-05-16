@@ -18,7 +18,7 @@ export class ProductPageComponent {
   productResource = rxResource({
     request: () => ({ idSlug: this.prodcutIdSlug }),
     loader: ({ request }) => {
-      return this.productService.getProductByIdSlug(request.idSlug);
+      return this.productService.getProductById(request.idSlug);
     },
   });
 }

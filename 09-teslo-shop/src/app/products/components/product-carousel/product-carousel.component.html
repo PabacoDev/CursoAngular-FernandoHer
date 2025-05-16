@@ -8,6 +8,11 @@
       <img [src]=" image | productImage" [alt]="" class="fadeIn-animation" />
     </div>
     }
+    @empty {
+    <div class="swiper-slide">
+      <img [src]=" [] | productImage" [alt]="" class="fadeIn-animation" />
+    </div>
+    }
     ...
   </div>
   <!-- If we need pagination -->
