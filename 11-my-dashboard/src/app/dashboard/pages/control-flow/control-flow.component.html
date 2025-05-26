@@ -1,1 +1,53 @@
-<p>control-flow works!</p>,
+<app-title title="Control Flow" />
+<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
+  <div class="bg-white rounded shadow p-10">
+    <h2 class="text-2xl font-bold mb-5">if: {{showContent()}}</h2>
+    <button class="p-2 bg-blue-500 rounded-xl text-whites" (click)="toggleContent()">Click me!</button>
+    @if (showContent()) {
+    <p>Hola Mundo</p>
+    }@else {
+    <p>***********</p>
+    }
+  </div>
+  <div class="bg-white rounded shadow p-10">
+
+    <h2 class="text-2xl">{{grade()}}</h2>
+
+    @switch (grade()) {
+    @case ('A') {
+    <p class="text-xl text-green-500">Arriba de 90</p>
+    }@case ('B') {
+    <p class="text-xl text-blue-600">Arriba de 80</p>
+    }@case ('C') {
+    <p class="text-xl text-orange-500">Arriba de 70</p>
+    }@case ('F') {
+    <p class="text-xl text-red-500">Suspenso</p>
+    }@default {
+    <p class="text-xl text-shadow-cyan-950">Sin nota</p>
+    }
+    }
+  </div>
+  <div class="bg-white rounded shadow p-10">
+    <ul>
+      @for (framework of frameworks(); track framework; let i = $index, count = $count, even = $even, first = $first,
+      last = $last,
+      odd = $odd) {
+      <li [class]="{
+      'bg-red-100': even && !first && !last,
+      'bg-purple-100': odd && !first && !last,
+      'bg-blue-100': first || last
+      }">{{(i+1)}}/{{count}} - {{framework}}
+      </li>
+      }
+    </ul>
+  </div>
+  <div class="bg-white rounded shadow p-10">
+    <ul>
+      @for (framework of frameworks2(); track framework) {
+      <li>{{framework}}</li>
+      }@empty {
+      <li>No hay frameworks en la lista</li>
+      }
+    </ul>
+  </div>
+</section>

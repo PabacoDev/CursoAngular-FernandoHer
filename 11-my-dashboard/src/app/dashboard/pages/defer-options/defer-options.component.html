@@ -1,0 +1,57 @@
+<app-title title="Defer Triggers" />
+
+<section>
+  <h1 class="text-xl">Interacciones</h1>
+  <hr class="my-2">
+
+  @defer (on interaction) {
+  <fast-loaders cssClass="bg-blue-500 h-20">
+    <span>On Interaction</span>
+  </fast-loaders>
+  } @placeholder {
+  <div class="w-full h-20 bg-purple-100"></div>
+  }
+
+
+  <button #btnInteraction class="p-2 bg-blue-500 hover:bg-blue-700 transition-all rounded text-white my-2">Click
+    Me!</button>
+
+  @defer (on interaction(btnInteraction)) {
+  <fast-loaders cssClass="my-2 bg-amber-500 h-20">
+    <span>On Click</span>
+  </fast-loaders>
+  } @placeholder {
+  <div class="my-2 w-full h-20 bg-purple-100"></div>
+  }
+  @defer (on hover(btnInteraction)) {
+  <fast-loaders cssClass="my-2 bg-red-500 h-20">
+    <span>On Hover</span>
+  </fast-loaders>
+  } @placeholder {
+  <div class="my-2 w-full h-20 bg-purple-100"></div>
+  }
+
+  @defer (on immediate) {
+  <fast-loaders cssClass="my-2 bg-yellow-500 h-20">
+    <span>On Immediate</span>
+  </fast-loaders>
+  } @placeholder {
+  <div class="my-2 w-full h-20 bg-purple-100"></div>
+  }
+
+  @defer (on timer( 2000 )) {
+  <fast-loaders cssClass="my-2 bg-green-500 h-20">
+    <span>On Timer</span>
+  </fast-loaders>
+  } @placeholder {
+  <div class="my-2 w-full h-20 bg-purple-100"></div>
+  }
+
+  @defer (on hover; prefetch on idle ) {
+  <fast-loaders cssClass="my-2 bg-purple-400 h-20">
+    <span>On Hover, idle</span>
+  </fast-loaders>
+  } @placeholder {
+  <div class="my-2 w-full h-20 bg-purple-100"></div>
+  }
+</section>
